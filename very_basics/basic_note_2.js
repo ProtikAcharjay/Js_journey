@@ -34,3 +34,40 @@ console.log(arrname_withof);
 //to solve this we can use flat function
 let flat_arr = arrname_withof.flat(Infinity) //here you can define the depth of array you have to do flat - for this case it's infinite. but prefer set a value
 
+
+// +++++++++++Objecet+++++++++++
+
+//singleton is created when object created using constructor - Object.create
+
+//Object literals
+const sym = Symbol("abc");
+console.log(sym);
+const obj = {
+    name:"Protik",
+    email:"pro@gmail.com",
+    [sym]: "this is symbol type",
+    age: 21,
+    location:"Rajshahi",
+    "problematic variable": "this will only can be access by obj[name inside double qoute]"
+}
+// two types of accessing objects
+console.log(obj.email);
+console.log(obj[sym]);
+console.log(obj["problematic variable"]);
+// console.log(obj.sym);   this will return undefined type
+
+Object.freeze(obj)  //by this the object is now freezed so that the values can not be changes inside the obj
+
+//To merge two or more abjects inside one object:
+let obj1={
+    emp_id:11,
+    emp_position:"Eng"
+}
+
+let merged_object = Object.assign({}, obj, obj1)
+// console.log(merged_object);
+
+//or spread method
+
+let obj2 = {...obj, ...obj1}
+console.log(obj2);
