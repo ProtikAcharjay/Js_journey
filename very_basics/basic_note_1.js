@@ -59,3 +59,29 @@ console.log(url.replace('%20', '_'));
 
 
 console.log(url.split('/'))
+
+//Math library:
+    const max = 50
+    const min = 33
+
+    console.log(Math.floor(Math.random() * (max-min+1)) + min)
+
+//Dates 
+//date is an object type
+//month starts from 0 in javascript means: 0=january, 1=february
+    const date = new Date()
+    console.log(date)
+    console.log(date.getTime())
+    console.log(date.getFullYear())
+    console.log(date.getMonth())
+    console.log(date.toString())
+    console.log(date.toISOString())
+    console.log(date.toUTCString())
+    console.log(date.toJSON())
+    console.log(date.toDateString()) //preferable Sun Sep 24 2023
+    console.log(date.toLocaleString()) //preferable 9/24/2023, 6:45:36 PM
+    const mydate = new Date(2023, 11, 11, 5, 30)
+    console.log(mydate.toLocaleString())
+    let mydatenow = Date.now() //for right now value
+
+
