@@ -1,3 +1,5 @@
+// Basics - variables and others
+
 "use strict"; //use all the js code as newer version
 
 // typeof null is object

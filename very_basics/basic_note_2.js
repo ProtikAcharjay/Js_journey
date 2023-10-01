@@ -1,3 +1,4 @@
+// +++++++++Array,Object,Function++++++++++
 // Array
 //push pop : as usual
 //unshift : adding at the very first, Shift: pop from the very first
@@ -71,3 +72,112 @@ let merged_object = Object.assign({}, obj, obj1)
 
 let obj2 = {...obj, ...obj1}
 console.log(obj2);
+
+//obj little more:
+
+const course={
+    course_name: "javascript",
+    course_instructor: "Hitesh",
+    member: "protik"
+}
+
+//object destructure
+
+// one type of accessing object:
+console.log(course.course_name);
+// or another method of acessing:
+const{member} = course
+console.log(member)
+const{course_instructor:sir} = course
+console.log(sir)
+
+// JSON
+// {
+//     "name":"Protik",
+//     "email":"pro@gmail.com"
+// }
+
+
+// Functions:
+
+function newFunction() {
+    console.log("first function writing")
+} //this is the declearation
+
+// newFunction //this is the reference of the function
+newFunction()  //this is the execution of the function
+
+function addingTwoNumbers(n1,n2) {
+    return n1+n2
+}
+
+const result= addingTwoNumbers(1,50)
+console.log("Result is:", result)
+
+
+//special case of function:
+
+function calculatorPro(val1,val2, ...num1){
+    console.log(val1);
+    console.log(val2);
+    console.log(num1);
+    return num1
+}
+calculatorPro(500,200,1000,5000,3000,5000,52,11)
+
+// Scope:
+// var in javascript is kind of for global scope. if anyone changes a var variable's value from any scope then it will change. better to use let or const
+
+//Note: Function inside function can access parent function's variables but parent functions can not use the child functions property outisde the scope of the child function! (some closure theory)******
+
+//functions interesting
+function add_one(num) {
+    return num+1
+}
+add_one(10) // this function can be accessed even before the function declearation. just function needed to be there thats all.
+const add_two = function(num) {
+    //here add_two is also called expression.
+    return num+2
+}
+add_two(10) // this function can not be accessed before the function declearation. only after the declearation of the function it can be called
+
+
+//This keyword ---
+// this refers current context of any variable
+//Inside browser global object is WINDOW
+//so if someone console.log(this) in browser he will get window object but if anyone do the same thing in local engine or node then it will return an empty object
+
+//inside a function this can not access it's intances. but it will only work for object. but only this will get some default value
+
+// Arrow function +++
+
+const arrowfuntion = () => {
+console.log("This is the basic syntax for arrow function") //for arrow function this will get an empty object like global this in node
+}
+
+const addingWithArrowfunction0 = (num1, num2) => {
+    return num1 + num2
+}
+//implicit return for arrow function (addingWithArrowfunction0)
+const addingWithArrowfunction = (num1, num2) => num1 + num2
+const addingWithArrowfunction2 = (num1, num2) => (num1 + num2)
+const addingWithArrowfunction3 = (num1, num2) => ({object1 : "for object return you have to wrap the object with first bracket to return that"})
+// if you are putting () ->this bracket you dont need to write return, but with {} -> this you have to write return 
+
+
+// ***** IIFE - Immediately Invoked Function Expressions *****
+
+// function name(params) {
+//     console.log("this is a function")
+// }
+// name()
+//if we have to write this function in  IIFE way:
+(function name(params) {
+    console.log("this is a function")
+})(params);
+//this is the IIFE way of executing the function, last () -> one is for execution
+// IIFE is important for saving our function's code from the global scope's pollution. sometimes global scope's code manipulates the function - but If we do IIFE execution then it can not influcence the code inside the perticular function.
+//Note: This IIFE needs a ; after it's execution is done
+//named IIFE is function with name
+//two IIFE can run together but needed one semi-colon
+
