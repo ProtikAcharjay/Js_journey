@@ -149,3 +149,59 @@ arrobj.forEach( (index) => {
 console.log(index.Name);
 } )
 
+//Foreach's limitation and Filter's introduction
+
+// remmember one thing that is foreach don't return any values
+// for return purpose we need to use filter
+
+const mynums = [1,2,3,4,5,6,7,8,9,10]
+const bignum = mynums.filter( (item) => 
+item>7
+ )
+//here if you want to write this code inside a scope like this
+// (item)=>{item>7} -> this will won't work because if you open one scope then you have to return manually that value other wise it goes for single line inplicit return.
+// so, valid syntax is (item)=>{return item>7}
+
+console.log(bignum);
+
+// the same work done by foreach:
+
+const newnum=[]
+mynums.forEach( (item)=> {
+    if(item<7){
+        newnum.push(item)
+    }
+} )
+
+console.log(newnum);
+
+
+// chaining
+
+const anothernum = mynums
+                    .map((num)=>
+                        num*10
+                    ) //without scope return
+                    .map((num)=>{
+                        return num+1
+                    }) //with scope return
+                    .filter((num)=>num>60)
+console.log(anothernum);
+
+// imp: REDUCE -***************
+
+const rnum=[1,2,3,4,5]
+// acc= accumulator, curr= current value
+const rstore = rnum.reduce( function(acc,curr) {
+    console.log(`acc: ${acc} and curr: ${curr}`);
+    return acc+curr
+}, 10) //with simple function
+
+console.log(rstore);
+
+//with arrow function:
+const rstore2 = rnum.reduce( (acc,curr)=> acc*curr, 1)
+
+console.log(rstore2);
+
+// Finally finsihed basics of js
