@@ -1,0 +1,42 @@
+<!-- //Starting intermediate things in javascripts 
+    // DOM -> Document object model //
+In browser to check documents :
+ console.log(window.document); 
+// or
+console.log(document); 
+//or if you want to access all the hidden things inside
+document: 
+console.dir(document); 
+document.getElementById('Id').innerHTML="<h1>Protik</h1>"-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Learning DOM</title>
+    <style>
+      .firstclass {
+        background-color: black;
+        color: aliceblue;
+      }
+    </style>
+  </head>
+  <body class="firstclass">
+    <h1 id="title">Learning DOM from Chai aur code</h1>
+    <p>
+      Protik from bangladesh. Lorem ipsum dolor sit amet, consectetur
+      adipisicing elit. Natus, laudantium?
+    </p>
+  </body>
+</html>
+
+<!-- Note  -->
+<!-- 
+    1. setattributes replace the previous atttrbute in case class or id whatever.
+    2. id_name.textContent to get the written text inside for that perticular id 
+    3. id_name.textContent provides you hidden all written texts but 
+        id_name.innerText will provide only visible texts
+    4. innerHTML provides all with tags and attributes
+    5. document.queryselector('h2') for selecting the first h2 tag
+    6. 
+ -->
