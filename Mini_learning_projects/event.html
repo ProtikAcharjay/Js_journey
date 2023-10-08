@@ -1,0 +1,182 @@
+<!-- Starting Events -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Learning Events</title>
+    <style>
+      img {
+        height: 80px;
+        width: 160px;
+      }
+    </style>
+  </head>
+  <body style="background-color: black; color: aliceblue">
+    <h2>some links</h2>
+    <div>
+      <ul id="images">
+        <li>
+          <img
+            src="https://bs-uploads.toptal.io/blackfish-uploads/components/blog_post_page/content/cover_image_file/cover_image/1289560/retina_1708x683_cover-0828_AfterAllTheseYearstheWorldisStillPoweredbyCProgramming_Razvan_Newsletter-2b9ea38294bb08c5aea1f0c1cb06732f.png"
+            alt=""
+            id="cplusplus"
+          />
+        </li>
+
+        <li>
+          <img
+            src="https://www.computerhope.com/jargon/j/javascript.png"
+            alt=""
+            id="javascript"
+          />
+        </li>
+
+        <li>
+          <img
+            src="https://www.ciat.edu/wp-content/uploads/2022/09/python-logo-1.png"
+            alt=""
+            id="python"
+          />
+        </li>
+        <li>
+          <a href="https://www.google.com/" id="google">Google</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+
+  <script>
+    // javascript run sequencially but sometimes it breaks sequence asyn or events
+
+    // document.getElementById("javascript").onclick = function () {
+    //   alert("Clicked on javascript");
+    // }; //this is not efficient cz it's get lesser features
+
+    // document.getElementById("javascript").addEventListener(
+    //   "click",
+    //   function () {
+    //     alert("Clicked on javascript");
+    //   } //,false //->sometimes it's needed to add another perameter that is false. default is false too. so not all the time we have to write this..
+    // );
+
+    // attachEvent()
+    // jQuery -on
+    // Event object:++++++
+
+    //  to know more about these:  Type, timestamp, defaultPrevented, target, toElement, srcElement, currentTarget, clientX, clientY, screenX,screenY, altKey, ctrlkey, shiftkey, keyCode
+
+    // Event propogation:
+    //   event bubbling and capturing
+    document.getElementById("images").addEventListener(
+      "click",
+      function (e) {
+        alert("Clicked inside the images ul");
+      },
+      false
+    );
+    document.getElementById("python").addEventListener(
+      "click",
+      function (e) {
+        alert("Clicked on python");
+        //if you want the inner element don't interact with outside scripts
+        e.stopPropagation(); //this will not go to outter way in bubbling way
+      },
+      false
+    );
+
+    // here false is for bubbling and
+    // true is for capturing
+
+    // bubbling is inside to outside and capturing is outside first then inside
+
+    document.getElementById("google").addEventListener(
+      "click",
+      function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        console.log("google clicked");
+      },
+      false
+    );
+  </script>
+
+  <script>
+    document.querySelector("#images").addEventListener(
+      "click",
+      function (e) {
+        console.log(e.target.parentNode);
+        console.log(e.target.tagName);
+        if (e.target.tagName === "IMG") {
+          console.log(e.target.id);
+          let removeit = e.target.parentNode;
+          removeit.remove();
+        } else {
+          e.preventDefault();
+        }
+
+        //this is one of the removing method
+        // another one is:
+        // removeit.parentNode.removeChild(removeit);
+      },
+      false
+    );
+  </script>
+<p>
+  Type: The type of event that occurred. For example, click, mouseover, or
+  keydown. 
+</br>
+</br>
+  Timestamp: The time at which the event occurred, in milliseconds
+  since the Unix epoch. 
+  </br>
+  </br>
+  defaultPrevented: A Boolean value indicating whether the
+  default action for the event has been prevented. 
+  For example, if you prevent a click event on a button, the button will not be clicked. 
+  </br>
+  </br>
+  target: The DOM element that the event occurred on. 
+  </br>
+  </br>
+  toElement: The DOM element that the mouse
+  pointer is over when the event occurs. 
+  </br>
+  </br>
+  srcElement: The DOM element that
+  initiated the event. This property is deprecated and should be avoided.
+  </br>
+  </br>
+  currentTarget: The DOM element that the event listener is attached to.
+  </br>
+  </br>
+  clientX: The horizontal coordinate of the mouse pointer, relative to the
+  document window. 
+  </br>
+  </br>
+  clientY: The vertical coordinate of the mouse pointer,
+  relative to the document window. 
+  </br>
+  </br>
+  screenX: The horizontal coordinate of the
+  mouse pointer, relative to the screen. 
+  </br>
+  </br>
+  screenY: The vertical coordinate of the
+  mouse pointer, relative to the screen. 
+  </br>
+  </br>
+  altKey: A Boolean value indicating
+  whether the Alt key is pressed. 
+  </br>
+  </br>
+  ctrlKey: A Boolean value indicating whether
+  the Ctrl key is pressed. 
+  </br>
+  </br>
+  shiftKey: A Boolean value indicating whether the
+  Shift key is pressed. 
+  </br>
+  </br>
+  keyCode: The code of the key that was pressed. 
+  </p>
+</html>
