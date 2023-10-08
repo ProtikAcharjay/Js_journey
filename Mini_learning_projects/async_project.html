@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Async project</title>
+  </head>
+  <body>
+    <h2 id="clock_title">Digital clock:</h2>
+    <div>
+      <h5 id="clock"></h5>
+      <button id="start">Start</button>
+      <button id="stop">Stop</button>
+    </div>
+  </body>
+  <script>
+    let clockstart_var;
+    function clockstart() {
+      if (!clockstart_var) {
+        clockstart_var = setInterval(function () {
+          const clock_value = new Date().toLocaleTimeString();
+          // console.log(clock_value);
+          document.querySelector("#clock").innerHTML = clock_value;
+        }, 1010);
+      }
+    }
+    function clockstop() {
+      clearInterval(clockstart_var);
+      clockstart_var = null;
+    }
+
+    document.querySelector("#start").addEventListener("click", function (e) {
+      clockstart();
+    });
+
+    document.querySelector("#stop").addEventListener("click", function (e) {
+      clockstop();
+      //   document.querySelector("#clock").innerHTML =
+      //     "Start again to watch digital clock";
+    });
+  </script>
+</html>

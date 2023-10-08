@@ -1,0 +1,67 @@
+<!-- Theory  -->
+<!-- 
+Javascript:
+    1. synchronous [JavaScript is both synchronous and asynchronous, depending on the context.]
+    2. single threaded
+    by default syncronous, it is needed to say or define to use asynchronous
+
+    Blocking code vs Non Blocking code:
+    blocking code blocks the code unless the code is fully executed on the other hand, non blocking code gives you privilage to run another code inbetween.
+
+    blocking code: read file sync
+    nonblocking code: read file async
+
+    ++++++++++++++++++++
+        Notes
+    ++++++++++++++++++++
+
+    javascirpt engine:
+        Memory heap
+        call stack
+
+    Promis is high priority 
+        high prority queue or promise queue
+
+    settimeout , set interval these are asnc api 
+
+    for example: If you call set timeout-> it will go call stack -> web api controller -> register controller all back -> task queue -> push into call stack 
+
+    fetch() api-> high priority-> this go to directly call stack with high priority
+
+
+ -->
+
+<!-- Code  -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Learning async</title>
+  </head>
+  <body>
+    <h2>Asynchronous</h2>
+    <button id="button">Click me</button>
+  </body>
+  <script>
+    // setTimeout(function () {
+    //   console.log("Protik");
+    // }, 2000);
+    // the method with the function initiated there
+
+    // If you have function defined you have to send the reference to this:
+
+    const sayProtik = function () {
+      console.log("Protik");
+    };
+
+    const changeText = function () {
+      document.querySelector("h2").innerHTML = "Learning Javascirpt";
+    };
+    const timeout_var = setTimeout(changeText, 5000);
+    document.querySelector("#button").addEventListener("click", function (e) {
+      clearTimeout(timeout_var);
+      console.log("Stoped changing h2");
+    });
+  </script>
+</html>
