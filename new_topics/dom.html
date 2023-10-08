@@ -38,5 +38,32 @@ document.getElementById('Id').innerHTML="<h1>Protik</h1>"-->
         id_name.innerText will provide only visible texts
     4. innerHTML provides all with tags and attributes
     5. document.queryselector('h2') for selecting the first h2 tag
-    6. 
  -->
+
+<!-- Get attributes and set attributes:
+document.getElementById('title').getAttribute('class')
+document.getElementById('title').setAttribute('class','test') //it will
+overwrite always -->
+
+<!-- to select anyone by queryselector:
+
+document.querySelector('ul') // tag or id or class  
+
+querySelectorall ->  provides your NodeList where you can use for each.. but it's not pure array so you can not use map.
+
+
+Now+++++++++++
+document.getElementByClassName('test_item')
+
+where you will get response as HTMLCollection
+this is similar to Nodelist but not nodelist. but there is no foreach prototype
+
+
+To convert HTMLCollection or NodeList into array::: ********************
+let's asssume a variable:
+const templist= document.getElementByClassName('test_item')
+
+Array.from(templist)
+-> now this will return a array type value
+
+-->
