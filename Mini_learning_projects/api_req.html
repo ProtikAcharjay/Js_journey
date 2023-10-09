@@ -1,0 +1,83 @@
+<!-- https://api.github.com/users/ProtikAcharjay -->
+
+<!-- to read properly api : https://jsonformatter.org/ -->
+
+<!-- xml http request -legacy code -->
+
+<!-- ajax -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <title>XML req</title>
+  </head>
+  <body style="background-color: black; color: aliceblue">
+    <p>
+      Value State Description 0 UNSENT Client has been created. open() not
+      called yet. 1 OPENED open() has been called. 2 HEADERS_RECEIVED send() has
+      been called, and headers and status are available. 3 LOADING Downloading;
+      responseText holds partial data. 4 DONE The operation is complete.
+    </p>
+    <div class="card" style="border: 2px solid white; padding: 4px">
+      <img id="avatar" src="" alt="" />
+      <h1 id="name"></h1>
+      <h2 id="followers"></h2>
+    </div>
+  </body>
+
+  <!-- <script>
+    const xhr = new XMLHttpRequest();
+    const reqURL = "https:api.github.com/users/ProtikAcharjay";
+
+    xhr.open("GET", reqURL);
+    //to check the readystate:
+    console.log(xhr.readyState);
+
+    // to check continiously:
+    xhr.onreadystatechange = function () {
+      console.log(xhr.readyState);
+
+      if (xhr.readyState === 4) {
+        console.log(this.responseText);
+        const data = JSON.parse(this.responseText);
+
+        console.log(data.followers);
+      }
+    };
+    xhr.send();
+  </script> -->
+
+  <script>
+    // Assignment
+    const xhr = new XMLHttpRequest();
+    const reqURL = "https:api.github.com/users/ProtikAcharjay";
+    xhr.open("GET", reqURL);
+    xhr.onreadystatechange = function () {
+      console.log(xhr.readyState);
+
+      if (xhr.readyState === 4) {
+        console.log(this.responseText);
+        const data = JSON.parse(this.responseText);
+
+        console.log(data.login);
+        console.log(data.avatar_url);
+        console.log(data.followers);
+        const avatarURL = data.avatar_url;
+        const name = data.login;
+        const followers = data.followers;
+        const DP = document.getElementById("avatar");
+        DP.src = avatarURL;
+        DP.style.height = "100px";
+        DP.style.width = "100px";
+        const profile_name = document.getElementById("name");
+        profile_name.innerHTML = `Profile Name: ${name}`;
+        const Flwer = document.getElementById("followers");
+        Flwer.innerHTML = `Followers: ${followers}`;
+      }
+    };
+    // console.log(data);
+    xhr.send();
+  </script>
+</html>
