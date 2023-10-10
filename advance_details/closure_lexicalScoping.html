@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <title>Starting Closure and Lexical Scoping</title>
+  </head>
+  <body style="background-color: black; color: wheat"></body>
+
+  <script>
+    function outer() {
+      let name = "protik";
+
+      function inner() {
+        console.log("inner", name);
+      }
+      inner();
+    }
+
+    outer();
+    // console.log("outer:", name); //only function inside function calling time they got internal properties but from outside it can not get this
+  </script>
+
+  <script>
+    function makeFunc() {
+      const name = "Mozilla";
+      function displayName() {
+        console.log(name);
+      }
+      return displayName;
+    }
+
+    const myFunc = makeFunc();
+    //here when we calling makefunc function for execute it will come up with displayname as it's return from the function itself. but it will also come up with the lexical scope of full makeFunc function, otherwise the displayName function could not even executed -- as you can see there are name variable which is defined in the makeFunc lexical scope.
+    // as it is comming with the whole lexical scope ,, so you are getting this executed
+    myFunc();
+
+    // sometimes onclick or any even want function as perameter but if We just provide the reference of the function it will won't work.. also if we execute it will execute directly
+    // in that time the solution is inside that reference function's execution you have to return another function which use lexical scoping and closure concepts
+  </script>
+</html>
