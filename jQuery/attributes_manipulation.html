@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Attributes manipulation</title>
+
+    <style>
+      .style1 {
+        font-style: italic;
+      }
+      .style2 {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <a href="https://www.google.com/" target="blank">Google</a>
+
+    <h1 id="h11">heading</h1>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <!-- <script>
+      //get an attribute:
+      const newatt = $("a").attr("href");
+
+      //   for removing attributes:
+      //   $("a").removeAttr("href");
+
+      console.log(newatt);
+
+      //   set attribute:
+      //   $("a").attr("href", "protik.com");
+    </script> -->
+    <script>
+      // css manipulation
+      $("h1").css("color", "red"); //for single property
+
+      //   for multiple property
+      $("h1").css({ color: "green", "font-size": "22px" });
+
+      //   to add css classsto any element
+
+      $("#h11").addClass("style1 style2");
+    </script>
+  </body>
+</html>

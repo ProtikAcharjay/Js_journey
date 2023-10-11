@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>jquery event listeners</title>
+  </head>
+  <body>
+    <h1 id="heading">test case</h1>
+    <button class="btn">Click here</button>
+
+    <button class="btn">Click here 2</button>
+
+    <button class="btn">Click here 3</button>
+
+    <button class="btn">Click here 4</button>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <script>
+      $("#btn").click(function () {
+        $("#heading").text("Changed the test case");
+      });
+
+      //   to adding css class with the button click and remove also with another click of button
+      //   $("#btn").click(function () {
+      //     $("#heading").toggleClass("style1");
+      //   });
+    </script>
+
+    <script>
+      // event listener inside jquery
+      $(".btn").on("mouseover", function () {
+        let innertext = this.innerHTML;
+        $("#heading").text(`${innertext} running`);
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <title>Form login as Jquery</title>
+  </head>
+  <body>
+    <input type="password" id="pass1" placeholder="Enter your password" />
+    <br /><br />
+    <input type="password" id="pass2" placeholder="Rewrite your password" />
+    <br /><br />
+    <button id="login">Login</button>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <script>
+      $("#login").on("click", function () {
+        let password1 = $("#pass1").val();
+        let password2 = $("#pass2").val();
+
+        if (password1 != "" && password2 != "") {
+          if (password1 === password2) {
+            alert("Logged in successful");
+          } else {
+            alert("Log in failed - try again");
+          }
+        } else {
+          alert("Please enter password properly");
+        }
+      });
+    </script>
+  </body>
+
+  <!-- Note:
+
+    Animation in jquery:
+    hide() -> this is the way you have to call this animations in  jquery
+$("#btn").on("click", function(){
+
+    $("p").hide();
+
+    //another methods are:
+    hide show toggle(milisec)
+    fadeIn fadeOut fadeToggle
+    FadeTo(milisec, opacity)
+
+    slideUp(mili sec), slideDown slideToggle()
+
+    *******
+    animate({css styles}, mili sec)
+    for example: 
+    animate({color:"red", height: "50px"}, 2000)
+
+})
+
+--></html>

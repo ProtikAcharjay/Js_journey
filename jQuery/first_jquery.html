@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Learning jQuery</title>
+  </head>
+  <body>
+    <h1 id="h1tag">h1</h1>
+    <p id="p1">para</p>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <script>
+      //   document.getElementById("h1tag").innerHTML = "Protik";
+      // Javascript way of doing this
+
+      // jquery way:
+      $("#h1tag").text("Protik jquery"); //changing text
+
+      //   text manipulation:
+      $("#h1tag").html("<i>Protik jquery using html </i>");
+
+      //   append to add text
+      $("#h1tag").append("<i>Protik jquery using html </i>");
+      //   if I want to add something before the default existing text:
+      $("#h1tag").prepend("<i>Protik jquery using html </i>");
+
+      let newpara = $("<p></p>").text("new paragraph added ");
+
+      //   $("#p1").before(newpara);
+      $("#p1").after(newpara);
+    </script>
+  </body>
+
+  <!-- 
+    Note:
+    Here for class . id # to select any element it's very similar to css selectors
+
+    in this we have learned text manipulation, creating new element in jquery
+   -->
+</html>
