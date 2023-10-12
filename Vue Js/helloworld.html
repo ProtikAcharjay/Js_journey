@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Vue js learning</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <h1>This is the first step of learning vue js</h1>
+      <h2>{{title}}</h2>
+    </div>
+    <script>
+      new Vue({
+        el: "#app", //element by default to target the app to start vue
+        data: {
+          // data this is an object where everything should define
+          title: "Hello world vue",
+        },
+      });
+    </script>
+  </body>
+</html>
