@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script>
+    <title>Bajar_List</title>
+    <style>
+      #maindiv {
+        border: 2px solid black;
+        margin: 40px;
+        padding-left: 200px;
+        padding-top: 100px;
+        padding-bottom: 200px;
+      }
+      #heading {
+        padding-left: 220px;
+      }
+      .lists {
+        border: 2px solid black;
+        margin-right: 220px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <!-- <ul>
+        <li>Rice - 50</li>
+        <li>Fish - 80</li>
+        <li>Vegetable - 20</li>
+      </ul> 
+    THis is the static code we have to write-->
+      <!-- dynamically we can write using vue loop inside the tag:
+    v-for="each in all" -->
+      <div id="maindiv">
+        <h1 id="heading">__Bajar_List__</h1>
+        <form @submit.prevent="addlist_function">
+          <input
+            type="text"
+            name="addlist"
+            id="addlist"
+            v-model="addlist_var_name"
+            placeholder="Enter the name of item"
+          />
+          <input
+            type="text"
+            name="addlist_price"
+            id="addlist_price"
+            v-model="addlist_var_price"
+            placeholder="Enter the price of item"
+          />
+          <button type="submit">Enter</button>
+        </form>
+        <ul>
+          <li v-for="(item, index) in Bajarlist" :key="index" class="lists">
+            {{item.Name}} -- <input v-model="item.Price" />
+            <button id="delete" @click="removeitem(index)">Delete</button>
+          </li>
+          <li>Final Bill : {{showResult}}</li>
+        </ul>
+      </div>
+    </div>
+
+    <script>
+      new Vue({
+        el: "#app",
+        data: {
+          Bajarlist: [
+            { Name: "Rice", Price: 50 },
+            { Name: "Fish", Price: 80 },
+            { Name: "Vegetable", Price: 20 },
+          ],
+          addlist_var_name: "",
+          addlist_var_price: "",
+        },
+        computed: {
+          showResult() {
+            let result = 0;
+            this.Bajarlist.forEach((item) => {
+              result += parseFloat(item.Price);
+            });
+            return result;
+          },
+        },
+        methods: {
+          addlist_function() {
+            this.Bajarlist.push({
+              Name: this.addlist_var_name,
+              Price: this.addlist_var_price,
+            });
+          },
+
+          removeitem(index) {
+            this.Bajarlist.splice(index, 1);
+          },
+        },
+      });
+    </script>
+  </body>
+</html>
